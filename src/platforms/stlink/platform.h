@@ -104,6 +104,8 @@
 #define IRQ_PRI_USBUSART_TIM	(3 << 4)
 #define IRQ_PRI_USB_VBUS	(14 << 4)
 #define IRQ_PRI_SWO_DMA			(1 << 4)
+#define IRQ_PRI_TIM3		(0 << 4)
+#define IRQ_PRI_TRACE	IRQ_PRI_TIM3
 
 #define USBUSART USART2
 #define USBUSART_CR1 USART2_CR1
@@ -116,6 +118,11 @@
 #define USBUSART_TIM_CLK_EN() rcc_periph_clock_enable(RCC_TIM4)
 #define USBUSART_TIM_IRQ NVIC_TIM4_IRQ
 #define USBUSART_TIM_ISR tim4_isr
+
+#define TRACE_TIM TIM3
+#define TRACE_TIM_CLK_EN() rcc_periph_clock_enable(RCC_TIM3)
+#define TRACE_IRQ   NVIC_TIM3_IRQ
+#define TRACE_ISR   tim3_isr
 
 #ifdef ENABLE_DEBUG
 extern bool debug_bmp;
